@@ -29,8 +29,8 @@ def root():
         readme_content=file.read()
     return markdown2.markdown(readme_content)
 
-@app.get("/get_phone_number_details",response_model=PhoneNumberDetail,description="Checks if phone number is valid and returns country of number. Example: (+442083661177)")
-def get_phone_number_details(phone_number:str=Query(description="Phone number starting with +")):
+@app.get("/get_phone_number_details",response_model=PhoneNumberDetail,description="Checks if phone number is valid and returns country of number.")
+def get_phone_number_details(phone_number:str=Query(description="Phone number starting with + (Example: +442083661177)")):
     if(phone_number.startswith(" ")):
         phone_number="+"+phone_number[1:]
     try:
